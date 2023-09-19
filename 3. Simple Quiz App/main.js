@@ -85,6 +85,8 @@ showQuestions = () =>{
 
 resetState = () =>{
     nextBtn.style.display = "none";
+
+    //Removes the previous answers and questions
     while(answerElements.firstChild){
         answerElements.removeChild(answerElements.firstChild);
     }
