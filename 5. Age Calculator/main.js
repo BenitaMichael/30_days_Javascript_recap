@@ -36,6 +36,4 @@ calculateAge = () =>{
     }
 
     result.innerHTML = `You are ${ansYear} years, ${ansMonth} months and ${ansDay} ${days} old.`
-
-    console.log(birthTime)
 }
