@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/07fdfe95f8.js" crossorigin="anonymous"></script>
+    <title>Music Player. Day 8 of Javascript</title>
+</head>
+<body>
+
+    <div class="container">
+
+        <div class="music-player">
+            <nav>
+                <div class="circle">
+                    <i class="fa-solid fa-angle-left"></i>
+                </div>
+                <div class="circle">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+            </nav>
+            <img src="dido.jpeg" alt="" class="song-img">
+            <h1>Life For Rent</h1>
+            <p>Dido</p>
+            
+
+            <audio id="song">
+                <source src="Dido_-_Life_for_Rent_(Jesusful.com).mp3" type="audio/mpeg">
+            </audio>
+            <input type="range" value="0" id="progress">
+
+            <div class="controls">
+                <div><i class="fa-solid fa-backward"></i></div>
+                <div onclick="playPause()"><i class="fa-solid fa-play" id="ctrl"></i></div>
+                <div><i class="fa-solid fa-forward"></i></div>
+            </div>
+
+        </div>
+
+    </div>
+    
+    <script>
+        let progress = document.getElementById("progress");
+        let song = document.getElementById("song");
+        let ctrl = document.getElementById("ctrl");
+
+        song.onloadedmetadata = () =>{
+            progress.max = song.duration;
+            progress.value = song.currentTime
+        }
+
+        playPause = () =>{
+            if(ctrl.classList.contains("fa-pause")){
+                song.pause();
+                ctrl.classList.remove("fa-pause");
+                ctrl.classList.add("fa-play");
+            }else{
+                song.play();
+                ctrl.classList.add("fa-pause");
+                ctrl.classList.remove("fa-play");
+            }
+        }
+
+        if(song.play()){
+            setInterval(() => {
+                progress.value = song.currentTime;
+            }, 500);
+        }
+
+        //To check and change from progress bar
+        progress.onchange = () =>{
+            song.play();
+            song.currentTime = progress.value;
+            ctrl.classList.add("fa-pause");
+            ctrl.classList.remove("fa-play");
+        }
+    </script>
+</body>
+</html>
