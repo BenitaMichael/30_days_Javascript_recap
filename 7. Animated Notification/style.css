@@ -1,0 +1,106 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-sizing: border-box;
+}
+
+body{
+    background: #f6c492;
+}
+
+.buttons{
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-content: center;
+    margin-top: 10%;
+}
+
+.buttons button{
+    background-color: #333;
+    color: #fff;
+    border: 0;
+    outline: 0;
+    font-size: 17px;
+    width: 120px;
+    height: 55px;
+    cursor: pointer
+}
+
+#notification-box{
+    display:flex;
+    align-items: flex-end;
+    flex-direction: column;
+    position:absolute;
+    bottom: 30px;
+    right:30px;
+    overflow: hidden;
+    padding: 20px;
+}
+
+.pop{
+    width: 400px;
+    padding: 25px;
+    background-color: #fff;
+    font-weight: 500;
+    margin: 15px 0;
+    box-shadow: 0 0 20px #333;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    /* for the progress line */
+    position:relative;
+
+    /* for the incoming notification box */
+    transform: translateX(100%);
+    animation: moveleft 0.5s linear forwards;
+}
+
+@keyframes moveleft {
+    100%{
+        transform: translateX(0);
+    }
+}
+
+.pop i{
+    color: green;
+    font-size: 25px;
+}
+
+.pop.error i{
+    color: red;
+}
+
+.pop.success i{
+    color:green;
+}
+
+.pop.warning i{
+    color: yellow
+}
+
+.pop::after{
+    content:'';
+    position: absolute;
+    left: 0;
+    bottom:0;
+    width: 100%;
+    height:5px;
+    background: green;
+    animation: anim 4s linear forwards
+}
+
+@keyframes anim {
+    100%{
+        width: 0;
+    }
+}
+
+.pop.error::after{
+    background: red;
+}
+
+.pop.pop.warning::after{
+    background: yellow;
+}

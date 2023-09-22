@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/07fdfe95f8.js" crossorigin="anonymous"></script>
+    <title>Animated Notification Bar. Day 7 of Javascript</title>
+</head>
+<body>
+    <div class="buttons">
+        <button onclick="showNotification(successMsg)">Success</button>
+        <button onclick="showNotification(warningMsg)">Warning</button>
+        <button onclick="showNotification(errorMsg)">Error</button>
+    </div>
+    <div id="notification-box"></div>
+
+<script>
+
+let notificationBox = document.getElementById("notification-box");
+let successMsg = ' <i class="fa-solid fa-circle-check"></i> Successfully submitted';
+let warningMsg = '<i class="fa-solid fa-circle-xmark"></i> Invalid input, try again';
+let errorMsg = '<i class="fa-solid fa-circle-exclamation"></i> An error occurred';
+
+showNotification = (msg) =>{
+   let popNotification = document.createElement("div");
+   popNotification.classList.add("pop");
+   popNotification.innerHTML = msg
+
+   notificationBox.appendChild(popNotification);
+
+   //Default is green so success is not needed
+   if(msg.includes('error')){
+    popNotification.classList.add('error')
+   }
+   if(msg.includes('Invalid')){
+    popNotification.classList.add('warning')
+   }
+
+   setTimeout(() => {
+    popNotification.remove()
+   }, 4000);
+}
+
+
+</script>
+</body>
+</html>
