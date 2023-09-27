@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Thank You PopUp. Day 11 of Javascript</title>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Customer Review.</h2>
+        <hr>
+        <form>
+            <input type="text" id="" placeholder="Enter Name">
+                <textarea name="" id="" cols="30" rows="4" placeholder="Enter Review"></textarea>
+            <button onclick="openPopUp()">Submit</button>
+        </form>
+
+        <div class="popup" id="popUp">
+            <img src="checked.png" alt="">
+            <h2>Thank You!</h2>
+            <p>Your review has been successfully submiited. Have a great time</p>
+            <button type="button" onclick="closePopUp()">OK</button>
+        </div>
+    </div>
+    
+
+    <script>
+        let popUp = document.getElementById("popUp");
+
+        openPopUp = () =>{
+            popUp.classList.add("openPopUp");
+        }
+
+        closePopUp = () =>{
+            popUp.classList.remove("openPopUp");
+        }
+    </script>
+</body>
+</html>
