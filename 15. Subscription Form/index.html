@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Email Subscriptionn Form. Day 15 of Javascript</title>
+</head>
+<body>
+    <main>
+
+        <h3>Coming Soon!</h3>
+        <h1>Our Brand New <br>Recipies Is On The Way</h1>
+        <p>Subscribe for more details</p>
+
+        <form name="submit-to-google-sheet">
+            <div>
+            <input type="text" name="Name" id="" placeholder="Your name" required>
+        </div>
+        <div class="submit-style">
+            <input type="email" name="Email" id="" placeholder="Your Email" required>
+            <button type="submit">
+                <img src="images/send.png" alt="" width= "30px">
+            </button>
+            </div>
+        </form>
+        <span id="msg"></span>
+
+    </main>
+
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbxr1VJ1gH1Y6AOi6B70SSa5cp1SeD07PHhZfcspt7ZZhyvT4AbdT29VAizrt8vGTK4L/exec'
+        const form = document.forms['submit-to-google-sheet'];
+        const msg = document.getElementById("msg")
+      
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => {
+                msg.innerHTML = "Thank You For Suscribing"
+                setTimeout(() => {
+                    msg.innerHTML = ""
+                }, 5000);
+                form.reset()
+            })
+            .catch(error => console.error('Error!', error.message))
+        })
+      </script>
+
+
+</body>
+</html>
