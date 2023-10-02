@@ -1,0 +1,84 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-sizing: border-box;
+}
+
+body{
+    background: #add8e6;
+    color: #000;
+}
+
+h1{
+    text-align: center;
+    margin: 100px auto 50px;
+    font-weight: 600;
+}
+
+form{
+    width: 100%;
+    max-width: 560px;
+    margin: auto;
+    height: 60px;
+    background: rgba(83, 0, 5, 0.4);
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+}
+
+form input{
+    flex: 1;
+    height: 100%;
+    border: 0;
+    outline: 0;
+    background-color: transparent;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 0 30px;
+}
+
+form input::placeholder{
+    color: #fff
+}
+
+form button{
+    padding: 0 40px;
+    height: 100%;
+    background: #258351;
+    color: #fff;
+    font-size: 16px;
+    border: 0;
+    outline: 0;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    cursor: pointer;
+}
+
+#show-more-btn{
+    background-color: #258351;
+    color: #fff;
+    border: 0;
+    outline: 0;
+    padding: 10px 20px;
+    border-radius: 4px;
+    margin: 10px auto 100px;
+    display: none;
+    cursor: poiner;
+}
+
+#search-result{
+    width: 80%;
+    margin: 100px auto 50px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+#search-result img{
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+    border-radius: 5px;
+}
