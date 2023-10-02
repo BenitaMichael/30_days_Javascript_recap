@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Select Menu. Day 18 of Javascript</title>
+</head>
+<body>
+
+    <main>
+        <div class="selector">
+            <div id="selectField">
+                <p id="selectOne">Select Social Media</p>
+                <img src="images/arrow.png" alt="" id="arrow">
+            </div>
+            <ul id="list" class="hide">
+                <li class="options">
+                    <img src="images/facebook.png" alt="">
+                    <p>facebook</p>
+                </li>
+                <li class="options">
+                    <img src="images/instagram.png" alt="">
+                    <p>instagram</p>
+                </li>
+                <li class="options">
+                    <img src="images/twitter.png" alt="">
+                    <p>twitter</p>
+                </li>
+                <li class="options">
+                    <img src="images/whatsapp.png" alt="">
+                    <p>whatsapp</p>
+                </li>
+            </ul>
+        </div>
+    </main>
+    
+
+    <script>
+        let selectField = document.getElementById("selectField");
+        let selectedOne = document.getElementById("selectOne");
+        let options = document.getElementsByClassName("options");
+        let list = document.getElementById("list");
+        let arrow = document.getElementById("arrow");
+
+
+        selectField.onclick = () =>{
+            list.classList.toggle("hide");
+            arrow.classList.toggle("rotate");
+        }
+
+        for (option of options) {
+            option.onclick = (event) => {
+                selectedOne.innerHTML = event.target.querySelector("p").textContent;
+                list.classList.toggle("hide");
+                arrow.classList.toggle("rotate");
+            };
+        }
+    </script>
+
+</body>
+</html>
