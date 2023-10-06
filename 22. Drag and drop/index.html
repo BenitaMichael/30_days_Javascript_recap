@@ -10,9 +10,10 @@
     
     <div class="container">
         <div id="left">
-            <div class="list" draggable="true">Ice Cream</div>
-            <div class="list" draggable="true">Salad</div>
-            <div class="list" draggable="true">Pizza</div> 
+            <div class="list" draggable="true">Exercise</div>
+            <div class="list" draggable="true">Code</div>
+            <div class="list" draggable="true">Breakfast</div>
+            <div class="list" draggable="true">Walk</div> 
         </div>
         <div id="right"></div>
 
@@ -24,7 +25,28 @@
         let rightContainer = document.getElementById("right");
         let leftContainer = document.getElementById("left");
 
-        for(list of lists)
+        for(list of lists){
+            list.addEventListener("dragstart", (e) =>{
+                let selected = e.target;
+
+                rightContainer.addEventListener("dragover", (e)=>{
+                    e.preventDefault();
+                })
+                rightContainer.addEventListener("drop", (e)=>{
+                    rightContainer.appendChild(selected);
+                    selected = null
+                })
+
+                leftContainer.addEventListener("dragover", (e)=>{
+                    e.preventDefault();
+                })
+                leftContainer.addEventListener("drop", (e)=>{
+                    leftContainer.appendChild(selected);
+                    selected = null
+                })
+            })
+
+        }
 
     </script>
 
