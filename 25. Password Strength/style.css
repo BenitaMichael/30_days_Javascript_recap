@@ -1,0 +1,60 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-sizing: border-box;
+}
+
+.container{
+    height: 100vh;
+    width: 100%;
+    background: #201;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.input-box{
+    width: 360px;
+    max-width: 100%;
+    position: relative;
+}
+
+.input-box input{
+    width: 100%;
+    height:60px;
+    padding: 0 20px;
+    border: 1px solid #ccc;
+    outline: none;
+    color: #fff;
+    background: transparent;
+}
+
+button{
+    background: #fff;
+    border: 0;
+    outline: none;
+    border-radius: 50%;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 15px;
+    padding: 2px;
+}
+
+button img{
+    width: 20px;
+}
+
+#message{
+    position: absolute;
+    bottom: -30px;
+    color: #fff;
+    font-size: 15px;
+    display: none;
+}
+
+::placeholder{
+    font-size: 15px;
+}
