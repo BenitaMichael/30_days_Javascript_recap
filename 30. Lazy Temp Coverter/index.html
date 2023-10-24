@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Lazy Temperature Converter</title>
+</head>
+<body>
+    
+    <div class="container">
+        <div class="input">
+            <h4>Celsius</h4>
+            <input type="text" id="celsius">
+        </div>
+        <img src="convert.png" id="convert">
+        <div class="input">
+            <h4>Fahrenheit</h4>
+            <input type="text" id= "fahrenheit">
+        </div>
+    </div>
+
+    <script>
+        const C = document.getElementById("celsius");
+        const F = document.getElementById("fahrenheit");
+
+
+        window.addEventListener("load", () => C.focus())
+
+        C.addEventListener("input", () =>{
+            F.value = ((C.value * 9)/ 5 + 32).toFixed(2);
+
+            if(!C.value) F.value = "";
+        })
+
+        F.addEventListener("input", () =>{
+            C.value = (((F.value - 32) * 5) / 9 ).toFixed(2);
+            if(!F.value) C.value = "";
+        })
+    </script>
+</body>
+</html>
